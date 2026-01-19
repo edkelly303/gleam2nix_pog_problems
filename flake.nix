@@ -35,11 +35,15 @@
           gleam2nix
           pkgs.gleam
           pkgs.erlang
+          pkgs.rebar3
+          pkgs.elixir
         ];
         shellHook = ''
           echo "== Entering nix develop shell =="
           echo "|- `gleam --version`"
           echo "|- erlang OTP `erl -noshell -eval 'io:format("~s~n", [erlang:system_info(otp_release)]), init:stop().'`"
+          echo "|- `rebar3 --version`"
+          echo "|- `elixir --version | tail -1`"
         '';
       };
     };
